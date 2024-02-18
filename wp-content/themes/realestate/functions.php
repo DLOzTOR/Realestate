@@ -164,6 +164,24 @@ function custom_login_url($login_url, $redirect)
 }
 add_filter('login_url', 'custom_login_url', 10, 2);
 
+function remove_admin_bar()
+{
+	if (!current_user_can('administrator') && !is_admin()) {
+		show_admin_bar(false);
+	}
+}
+add_action('after_setup_theme', 'remove_admin_bar');
+
+
+function restrict_admin_access()
+{
+	if (is_admin() && current_user_can('subscriber') && !wp_doing_ajax()) {
+		wp_redirect(home_url());
+		exit;
+	}
+}
+add_action('init', 'restrict_admin_access');
+
 function realestate_set_select_droplist($value)
 {
 	if (isset($_GET['per_page']) && $_GET['per_page'] == $value)
