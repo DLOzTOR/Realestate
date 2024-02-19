@@ -7,8 +7,8 @@
         <div class="item-entry overflow">
             <h5><a href="<?= get_post_permalink() ?>"> <?php the_title() ?> </a></h5>
             <div class="dot-hr"></div>
-            <span class="pull-left"><b> Area :</b> <?= realestate_get_post_custom_field('area') ?>m </span>
-            <span class="proerty-price pull-right"> $ <?= realestate_get_post_custom_field('price') ?></span>
+            <span class="pull-left"><b> Area :</b> <?= realestate\get_post_custom_field('area') ?>m </span>
+            <span class="proerty-price pull-right"> $ <?= realestate\get_post_custom_field('price') ?></span>
             <p style="display: none;">
                 <?= wp_strip_all_tags(get_the_content_feed()) ?>
             </p>

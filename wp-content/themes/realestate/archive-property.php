@@ -213,14 +213,14 @@ get_header();
                             <label for="items_per_page"><b>Property per page :</b></label>
                             <div class="sel">
                                 <select id="items_per_page" name="per_page" onchange="this.form.submit()">
-                                    <option <?php realestate_set_select_droplist(3) ?> value="3">3</option>
-                                    <option <?php realestate_set_select_droplist(6) ?> value="6">6</option>
-                                    <option <?php realestate_set_select_droplist(9) ?> value="9">9</option>
-                                    <option <?php realestate_set_select_droplist(12) ?> value="12">12</option>
-                                    <option <?php realestate_set_select_droplist(15) ?> value="15">15</option>
-                                    <option <?php realestate_set_select_droplist(30) ?> value="30">30</option>
-                                    <option <?php realestate_set_select_droplist(45) ?> value="45">45</option>
-                                    <option <?php realestate_set_select_droplist(60) ?> value="60">60</option>
+                                    <option <?php realestate\set_select_droplist(3) ?> value="3">3</option>
+                                    <option <?php realestate\set_select_droplist(6) ?> value="6">6</option>
+                                    <option <?php realestate\set_select_droplist(9) ?> value="9">9</option>
+                                    <option <?php realestate\set_select_droplist(12) ?> value="12">12</option>
+                                    <option <?php realestate\set_select_droplist(15) ?> value="15">15</option>
+                                    <option <?php realestate\set_select_droplist(30) ?> value="30">30</option>
+                                    <option <?php realestate\set_select_droplist(45) ?> value="45">45</option>
+                                    <option <?php realestate\set_select_droplist(60) ?> value="60">60</option>
                                 </select>
                             </div><!--/ .sel-->
                         </form><!--/ .items-per-page-->
