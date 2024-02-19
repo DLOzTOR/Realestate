@@ -39,30 +39,17 @@ get_header();
                                 <fieldset>
                                     <div class="row">
                                         <div class="col-xs-6">
-
-                                            <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select Your City">
-
-                                                <option>New york, CA</option>
-                                                <option>Paris</option>
-                                                <option>Casablanca</option>
-                                                <option>Tokyo</option>
-                                                <option>Marraekch</option>
-                                                <option>kyoto , shibua</option>
+                                            <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select City">
+                                                <?php realestate\foreach_taxonomy_terms('cities', 'realestate\term_as_option') ?>
                                             </select>
                                         </div>
                                         <div class="col-xs-6">
-
-                                            <select id="basic" class="selectpicker show-tick form-control">
-                                                <option> -Status- </option>
-                                                <option>Rent </option>
-                                                <option>Boy</option>
-                                                <option>used</option>
-
+                                            <select id="basic" class="selectpicker show-tick form-control" title="Status">
+                                                <?php realestate\foreach_taxonomy_terms('status', 'realestate\term_as_option') ?>
                                             </select>
                                         </div>
                                     </div>
                                 </fieldset>
-
                                 <fieldset class="padding-5">
                                     <div class="row">
                                         <div class="col-xs-6">
@@ -99,23 +86,19 @@ get_header();
                                     </div>
                                 </fieldset>
                                 <?php
-                                $property_features =  get_terms(array(
-                                    'taxonomy' => 'features',
-                                    'hide_empty' => false,
-                                ));
-                                foreach ($property_features as $feature) {
+                                realestate\foreach_taxonomy_terms('features', function ($term) {
                                 ?>
                                     <fieldset class="padding-5">
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="checkbox">
-                                                    <label> <input type="checkbox" name="feature_<?= $feature->term_id ?>"> <?= $feature->name ?> </label>
+                                                    <label> <input type="checkbox" name="feature[]" value="<?= $term->term_id ?>"> <?= $term->name ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </fieldset>
                                 <?php
-                                }
+                                });
                                 ?>
                                 <fieldset>
                                     <div class="row">

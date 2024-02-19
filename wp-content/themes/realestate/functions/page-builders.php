@@ -2,6 +2,8 @@
 
 namespace realestate;
 
+use WP_Term;
+
 /**
  * Displays terms of a specified taxonomy using a custom callback function.
  *
@@ -32,4 +34,11 @@ function set_select_droplist($value)
     elseif (!isset($_GET['per_page']) && $value == 6) {
         echo 'selected';
     }
+}
+
+function term_as_option(WP_Term $term)
+{
+?>
+    <option value="<?= $term->term_id ?>"> <?= $term->name ?> </option>
+<?php
 }

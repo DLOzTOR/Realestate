@@ -89,24 +89,16 @@ get_header();
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Property City :</label>
-                                                <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select your city">
-                                                    <?php realestate\foreach_taxonomy_terms('cities', function (WP_Term $term) {
-                                                    ?>
-                                                        <option value="<?= $term->term_id ?>"> <?= $term->name ?> </option>
-                                                    <?php
-                                                    }) ?>
+                                                <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select city">
+                                                    <?php realestate\foreach_taxonomy_terms('cities', 'realestate\term_as_option') ?>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Property Status :</label>
-                                                <select id="basic" class="selectpicker show-tick form-control" name="state">
-                                                    <?php realestate\foreach_taxonomy_terms('status', function (WP_Term $term) {
-                                                    ?>
-                                                        <option value="<?= $term->term_id ?>"> <?= $term->name ?> </option>
-                                                    <?php
-                                                    }) ?>
+                                                <select id="basic" class="selectpicker show-tick form-control" name="status" title="Select status">
+                                                    <?php realestate\foreach_taxonomy_terms('status', 'realestate\term_as_option') ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -131,88 +123,25 @@ get_header();
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 padding-top-15">
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Swimming Pool
-                                                    </label>
+                                    <div class="col-sm-12 padding-top-15 padding-bottom-15">
+
+                                        <?php realestate\foreach_taxonomy_terms('features', function ($term) {
+                                        ?>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label> <input type="checkbox" name="feature[]" value="<?= $term->term_id ?>"> <?= $term->name ?> </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> 2 Stories
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Emergency Exit
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Fire Place
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php
+                                        }) ?>
                                     </div>
-                                    <div class="col-sm-12 padding-bottom-15">
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Laundry Room
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Jog Path
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Ceilings
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Dual Sinks
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
                                 </div>
                             </div>
                             <!-- End step 2 -->
 
-                            <div class="tab-pane" id="step3">
+                            <div class=" tab-pane" id="step3">
                                 <h4 class="info-text">Give us somme images and videos ? </h4>
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -227,19 +156,10 @@ get_header();
                                             <label for="property-video">Property video :</label>
                                             <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
                                         </div>
-
-                                        <div class="form-group">
-                                            <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <!--  End step 3 -->
-
                             <div class="tab-pane" id="step4">
                                 <h4 class="info-text"> Finished and submit </h4>
                                 <div class="row">

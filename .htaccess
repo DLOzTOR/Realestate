@@ -14,3 +14,8 @@ RewriteRule . /Realestate/index.php [L]
 </IfModule>
 
 # END WordPress
+
+# log php errors
+php_flag  log_errors on
+php_flag  log_errors on
+php_value error_log D:\Folder\Programing\PHP\Realestate\wp-content\plugins\error-log-viewer/log/php-errors.log

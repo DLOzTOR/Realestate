@@ -1,4 +1,7 @@
 <?php
+require_once ABSPATH . 'wp-admin/includes/image.php';
+require_once ABSPATH . 'wp-admin/includes/file.php';
+require_once ABSPATH . 'wp-admin/includes/media.php';
 function realestate_register_post_type_property()
 {
     $cities_labels = array(
@@ -111,6 +114,7 @@ function realestate_register_post_type_property()
     );
 }
 add_action('init', 'realestate_register_post_type_property');
+
 //pagination
 add_action('pre_get_posts', function ($query) {
     if (is_post_type_archive('property')) $query->set('posts_per_page', isset($_GET['per_page']) ? intval($_GET['per_page']) : 6);

@@ -15,6 +15,7 @@ require_once get_template_directory() . '/functions/utils.php';
 require_once get_template_directory() . '/functions/url-handling.php';
 require_once get_template_directory() . '/functions/user-permissions.php';
 require_once get_template_directory() . '/functions/enqueue-scripts.php';
+require_once get_template_directory() . '/functions/meta-boxes.php';
 require_once get_template_directory() . '/functions/nav-menus.php';
 require_once get_template_directory() . '/functions/post-types.php';
 require_once get_template_directory() . '/functions/page-builders.php';
