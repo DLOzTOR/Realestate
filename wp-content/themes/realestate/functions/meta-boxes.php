@@ -63,7 +63,6 @@ function realestate_property_save_images($post_id)
 {
     if (isset($_FILES['images'])) {
         $files = $_FILES['images'];
-        $length = count($files['name']);
         foreach ($files['name'] as $key => $value) {
             $file = array(
                 'name'      => $files['name'][$key],
