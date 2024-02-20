@@ -106,7 +106,6 @@ function realestate_register_post_type_property()
                 'editor',
                 'thumbnail',
                 'custom-fields',
-                'excerpt',
                 'author'
             ),
             'rewrite' => array('slug' => 'properties'),

@@ -1,0 +1,29 @@
+[20-Feb-2024 19:06:51 UTC] Зашел
+array (
+  'property_name' => 'Let\\\'s start with the basic information (with validation)',
+  'price' => 'Let\\\'s start with the basic information (with validation)',
+  'phone' => 'Let\\\'s start with the basic information (with validation)',
+  'description' => 'Let\\\'s start with the basic information (with validation)
+Let\\\'s start with the basic information (with validation)
+Let\\\'s start with the basic information (with validation)
+',
+  'status' => '15',
+  'bedrooms' => '5',
+  'bathrooms' => '5',
+  'area' => '5',
+  'features' => 
+  array (
+    0 => '11',
+    1 => '12',
+    2 => '13',
+    3 => '6',
+    4 => '7',
+    5 => '9',
+    6 => '8',
+    7 => '4',
+  ),
+  'video' => 'https://www.youtube.com/watch?v=tRijLaXxSwU',
+)
+[20-Feb-2024 19:42:30 UTC] ну пизда
+[20-Feb-2024 19:42:54 UTC] PHP Warning:  Undefined variable $post_content in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\submit-property.php on line 20
+[20-Feb-2024 19:42:54 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `re_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-02-20 19:42:54', '2024-02-20 19:42:54', NULL, '', 'Villa', '', 'publish', 'property', 'closed', 'closed', '', 'villa', '', '', '2024-02-20 19:42:54', '2024-02-20 19:42:54', 0, 0, '', '') made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/realestate/template/submit-property.php'), wp_insert_post
