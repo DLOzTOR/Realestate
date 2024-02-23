@@ -93,7 +93,25 @@
 </div>
 
 <?php wp_footer(); ?>
+<?php if (get_post_type(get_the_ID())) : ?>
+    <script>
+        $(document).ready(function() {
+            $('#image-gallery').lightSlider({
+                gallery: true,
+                item: 1,
+                thumbItem: 9,
+                slideMargin: 0,
+                speed: 500,
+                auto: true,
+                loop: true,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+        });
+    </script>
 
+<?php endif; ?>
 </body>
 
 </html>

@@ -70,12 +70,7 @@
 			</div>
 			<div class="collapse navbar-collapse yamm" id="navigation">
 				<div class="button navbar-right">
-					<?php if (is_user_logged_in()) : ?>
-						<button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location.replace('<?= get_site_url() . '/submit-property' ?>')" data-wow-delay="0.48s">Submit</button>
-						<button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.location.replace('<?= wp_logout_url() ?>')" data-wow-delay="0.45s">Logout</button>
-					<?php else : ?>
-						<button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.location.replace('<?= wp_login_url() ?>')" data-wow-delay="0.45s">Login</button>
-					<?php endif; ?>
+					<?php realestate\header_buttons() ?>
 				</div>
 				<?php
 				wp_nav_menu(

@@ -1,4 +1,11 @@
 <?php
+/*
+* Template name: Submit property
+*/
+if (!is_user_logged_in()) {
+    wp_redirect(home_url());
+    exit();
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = sanitize_text_field($_POST["property_name"]);
     $content = wp_kses_post($_POST["description"]);
@@ -57,9 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-/*
-* Template name: Submit property
-*/
+
 get_header();
 ?>
 <div class="page-head">
@@ -72,12 +77,7 @@ get_header();
     </div>
 </div>
 <!-- End page header -->
-<pre>
-    <?php
-    var_dump($_POST);
-    var_dump($_FILES);
-    ?>
-</pre>
+
 <!-- property area -->
 <div class="content-area submit-property" style="background-color: #FCFCFC;">&nbsp;
     <div class="container">
@@ -92,7 +92,6 @@ get_header();
                                 <small>Lorem ipsum dolor sit amet, consectetur adipisicing.</small>
                             </h3>
                         </div>
-
                         <ul>
                             <li><a href="#step1" data-toggle="tab">Step 1 </a></li>
                             <li><a href="#step2" data-toggle="tab">Step 2 </a></li>

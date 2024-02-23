@@ -37,10 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'last_name' => esc_attr($_POST['last-name']),
             'role' => 'subscriber'
         );
-
         $user_id = wp_insert_user($user_data);
         if (!is_wp_error($user_id)) {
             $success_message = 'Registration successful';
+            if (isset($_FILES['avatar'])) {
+                realestate\update_user_avatar($user_id);
+            } else {
+                error_log("not set");
+            }
         } else {
             $error_message = $user_id->get_error_message();
         }
@@ -63,7 +67,7 @@ get_header();
 <div class="register-area" style="background-color: rgb(249, 249, 249);">
     <div class="container">
 
-        <form action="<?= wp_login_url() ?>" method="post">
+        <form action="<?= wp_login_url() ?>" method="post" enctype="multipart/form-data">
             <div class="col-md-6">
                 <div class="box-for overflow">
                     <div class="col-md-12 col-xs-12 register-blocks">
@@ -83,32 +87,38 @@ get_header();
                         <?php
                         }
                         ?>
-                        <form action="" method="post">
-                            <div class="form-group">
-                                <label for="first-name">First name</label>
-                                <input type="text" class="form-control" name="first-name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="last-name">Last name</label>
-                                <input type="text" class="form-control" name="last-name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="user-name">Username</label>
-                                <input type="text" class="form-control" name="user-name" required>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" name="email" required>
+                        <div><label for="first-name">Avatar</label></div>
+                        <div class="wizard-card">
+                            <div class="picture" style="position: relative; display:flex; align-items: center">
+                                <img src="" class="picture-src" id="wizardPicturePreview" title="" />
+                                <input type="file" id="wizard-picture" name="avatar" required accept="image/*" style="position: absolute; padding: 0;">
                             </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" required>
-                            </div>
-                            <div class="text-center">
-                                <input type="submit" name="register" value="Register" class="btn btn-default">
-                            </div>
-                        </form>
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name">First name</label>
+                            <input type="text" class="form-control" name="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last name</label>
+                            <input type="text" class="form-control" name="last-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-name">Username</label>
+                            <input type="text" class="form-control" name="user-name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" name="register" value="Register" class="btn btn-default">
+                        </div>
                     </div>
                 </div>
             </div>

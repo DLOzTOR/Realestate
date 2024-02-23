@@ -25,18 +25,17 @@ function realestate_property_images($post)
         echo '<input type="submit" name="delete_all_attachment" value="Delete all images" style="background: red;">';
         echo '</form></div>';
         $media_attachments = get_attached_media('image', $post);
+        foreach ($media_attachments as $media_attachment) {
+            $image_url = wp_get_attachment_url($media_attachment->ID);
+            echo '<div>';
+            echo '<img src="' . esc_url($image_url) . '" alt="image" style="width:300px; max-height:300px">';
+            echo '<div><form method="post">';
+            echo '<input type="hidden" name="delete_attachment_id" value="' . $media_attachment->ID . '">';
+            echo '<input type="submit" name="delete_attachment" value="Delete image">';
+            echo '</form></div>';
+            echo '</div>';
+        }
     }
-    foreach ($media_attachments as $media_attachment) {
-        $image_url = wp_get_attachment_url($media_attachment->ID);
-        echo '<div>';
-        echo '<img src="' . esc_url($image_url) . '" alt="image" style="width:300px; max-height:300px">';
-        echo '<div><form method="post">';
-        echo '<input type="hidden" name="delete_attachment_id" value="' . $media_attachment->ID . '">';
-        echo '<input type="submit" name="delete_attachment" value="Delete image">';
-        echo '</form></div>';
-        echo '</div>';
-    }
-
     echo '<label for"images[]">Add images</label>';
     echo '<input type="file" name="images[]" accept="image/*" multiple>';
 }

@@ -40,5 +40,15 @@ function term_as_option(WP_Term $term)
 {
 ?>
     <option value="<?= $term->term_id ?>"> <?= $term->name ?> </option>
-<?php
+    <?php
+}
+function header_buttons()
+{
+    if (is_user_logged_in()) : ?>
+        <?php if (!is_page('submit-property')) { ?><button class="navbar-btn nav-button wow fadeInRight login" onclick=" window.location.replace('<?= get_site_url() . '/submit-property' ?>')" data-wow-delay="0.48s">Submit your property</button><?php } ?>
+        <?php if (!is_page('profile')) { ?><button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.location.replace('<?= get_site_url() . '/profile' ?>')" data-wow-delay="0.45s">Profile</button><?php } ?>
+        <button class="navbar-btn nav-button wow bounceInRight" onclick=" window.location.replace('<?= wp_logout_url() ?>')" data-wow-delay="0.45s">Logout</button>
+    <?php else : ?>
+        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.location.replace('<?= wp_login_url() ?>')" data-wow-delay="0.45s">Login</button>
+<?php endif;
 }

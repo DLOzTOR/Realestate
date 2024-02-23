@@ -15,11 +15,10 @@ function realestate_enqueue_style()
     wp_enqueue_style('realestate-owl-carouse', get_template_directory_uri() . '/assets/css/owl.carousel.css', array(), '1.0', false);
     wp_enqueue_style('realestate-owl-theme', get_template_directory_uri() . '/assets/css/owl.theme.css', array(), '1.0', false);
     wp_enqueue_style('realestate-owl-transitions', get_template_directory_uri() . '/assets/css/owl.transitions.css', array(), '1.0', false);
-    if (is_page('submit-property')) {
-        wp_enqueue_style('realestate-wizard', get_template_directory_uri() . '/assets/css/wizard.css', array(), '1.0', false);
-    }
+    wp_enqueue_style('realestate-wizard', get_template_directory_uri() . '/assets/css/wizard.css', array(), '1.0', false);
     wp_enqueue_style('realestate-style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0', false);
     wp_enqueue_style('realestate-responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), '1.0', false);
+    wp_enqueue_style('lightslider', get_template_directory_uri() . '/assets/css/lightslider.min.css', array(), '1.0', false);
 
     wp_enqueue_style('realestate-style', get_stylesheet_uri(), array(), _S_VERSION);
     wp_style_add_data('realestate-style', 'rtl', 'replace');
@@ -39,11 +38,10 @@ function realestate_enqueue_script()
     wp_enqueue_script('wow', get_template_directory_uri() . '/assets/js/wow.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel'));
     wp_enqueue_script('icheck', get_template_directory_uri() . '/assets/js/icheck.min.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel', 'wow'));
     wp_enqueue_script('price-range', get_template_directory_uri() . '/assets/js/price-range.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel', 'wow', 'icheck'));
-    if (is_page('submit-property')) {
-        wp_enqueue_script('jquery-bootstrap-wizard', get_template_directory_uri() . '/assets/js/jquery.bootstrap.wizard.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel', 'wow', 'icheck'));
-        wp_enqueue_script('jquery-validate', get_template_directory_uri() . '/assets/js/jquery.validate.min.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel', 'wow', 'icheck', 'jquery-bootstrap-wizard'));
-        wp_enqueue_script('realestate-wizard', get_template_directory_uri() . '/assets/js/wizard.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel', 'wow', 'icheck', 'jquery-bootstrap-wizard', 'jquery-validate'));
-    }
+    wp_enqueue_script('jquery-bootstrap-wizard', get_template_directory_uri() . '/assets/js/jquery.bootstrap.wizard.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel', 'wow', 'icheck'));
+    wp_enqueue_script('jquery-validate', get_template_directory_uri() . '/assets/js/jquery.validate.min.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel', 'wow', 'icheck', 'jquery-bootstrap-wizard'));
+    wp_enqueue_script('realestate-wizard', get_template_directory_uri() . '/assets/js/wizard.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel', 'wow', 'icheck', 'jquery-bootstrap-wizard', 'jquery-validate'));
+    wp_enqueue_script('lightslider', get_template_directory_uri() . '/assets/js/lightslider.min.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel', 'wow', 'icheck', 'jquery-bootstrap-wizard', 'jquery-validate'));
     wp_enqueue_script('realestate-main', get_template_directory_uri() . '/assets/js/main.js', array('modernizr-2.6.2', 'jquery-1.10.2', 'bootstrap', 'bootstrap-select', 'bootstrap-hover-dropdown', 'easypiechart', 'jquery.easypiechart', 'owl.carousel', 'wow', 'icheck', 'price-range'));
 }
 add_action('wp_footer', 'realestate_enqueue_script');

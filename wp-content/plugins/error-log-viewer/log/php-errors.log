@@ -27,3 +27,46 @@ Let\\\'s start with the basic information (with validation)
 [20-Feb-2024 19:42:30 UTC] ну пизда
 [20-Feb-2024 19:42:54 UTC] PHP Warning:  Undefined variable $post_content in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\submit-property.php on line 20
 [20-Feb-2024 19:42:54 UTC] WordPress database error Column 'post_content' cannot be null for query INSERT INTO `re_posts` (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_content_filtered`, `post_title`, `post_excerpt`, `post_status`, `post_type`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_parent`, `menu_order`, `post_mime_type`, `guid`) VALUES (1, '2024-02-20 19:42:54', '2024-02-20 19:42:54', NULL, '', 'Villa', '', 'publish', 'property', 'closed', 'closed', '', 'villa', '', '', '2024-02-20 19:42:54', '2024-02-20 19:42:54', 0, 0, '', '') made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/realestate/template/submit-property.php'), wp_insert_post
+[21-Feb-2024 11:06:47 UTC] PHP Warning:  Undefined array key "avatar" in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\submit-property.php on line 82
+[21-Feb-2024 11:08:44 UTC] PHP Warning:  Undefined array key "avatar" in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\submit-property.php on line 82
+[21-Feb-2024 11:10:53 UTC] not set
+[22-Feb-2024 08:47:54 UTC] PHP Warning:  Undefined array key "avatar" in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 66
+[22-Feb-2024 08:47:54 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 66
+[22-Feb-2024 08:49:06 UTC] PHP Warning:  Undefined array key "avatar" in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 66
+[22-Feb-2024 08:49:06 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 66
+[22-Feb-2024 08:54:22 UTC] PHP Warning:  Undefined variable $image_id in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 29
+[22-Feb-2024 08:57:16 UTC] set
+[22-Feb-2024 09:08:17 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "post_id" in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php:103
+Stack trace:
+#0 D:\Folder\Programing\PHP\Realestate\wp-includes\template-loader.php(106): include()
+#1 D:\Folder\Programing\PHP\Realestate\wp-blog-header.php(19): require_once('D:\\Folder\\Progr...')
+#2 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
+#3 {main}
+  thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 103
+[22-Feb-2024 09:08:23 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "post_id" in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php:103
+Stack trace:
+#0 D:\Folder\Programing\PHP\Realestate\wp-includes\template-loader.php(106): include()
+#1 D:\Folder\Programing\PHP\Realestate\wp-blog-header.php(19): require_once('D:\\Folder\\Progr...')
+#2 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
+#3 {main}
+  thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 103
+[22-Feb-2024 23:43:09 UTC] PHP Warning:  Attempt to read property "user_email" on bool in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 153
+[22-Feb-2024 23:43:37 UTC] PHP Warning:  Attempt to read property "user_email" on bool in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 153
+[22-Feb-2024 23:46:06 UTC] PHP Warning:  Attempt to read property "user_email" on bool in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 153
+[22-Feb-2024 23:51:56 UTC] PHP Warning:  Undefined variable $author_id in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 151
+[22-Feb-2024 23:54:05 UTC] PHP Warning:  Trying to access array offset on value of type bool in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 57
+[22-Feb-2024 23:54:05 UTC] PHP Warning:  Attempt to read property "name" on null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 57
+[22-Feb-2024 23:54:05 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 113
+[22-Feb-2024 23:54:27 UTC] PHP Warning:  Trying to access array offset on value of type bool in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 57
+[22-Feb-2024 23:54:27 UTC] PHP Warning:  Attempt to read property "name" on null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 57
+[22-Feb-2024 23:54:27 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\single-property.php on line 113
+[23-Feb-2024 00:12:02 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 394
+[23-Feb-2024 00:12:02 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 409
+[23-Feb-2024 00:12:02 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 394
+[23-Feb-2024 00:12:02 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 445
+[23-Feb-2024 00:12:02 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 456
+[23-Feb-2024 00:12:02 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 409
+[23-Feb-2024 00:12:03 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 394
+[23-Feb-2024 00:12:03 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 445
+[23-Feb-2024 00:12:03 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 456
+[23-Feb-2024 00:12:03 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 409
