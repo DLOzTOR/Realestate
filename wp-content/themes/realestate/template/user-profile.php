@@ -2,6 +2,7 @@
 /*
 * Template name: User profile
 */
+realestate\redirect_if_not_logged_in();
 $user = get_userdata(get_current_user_id());
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['first-name'])) {
@@ -19,6 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             wp_delete_attachment($image_id, true);
         }
         realestate\update_user_avatar($user->ID);
+    }
+    if (isset($_POST['delete'])) {
+        $author_id = get_post_field('post_author', $_POST['delete_post_id']);
+        if ($author_id == $user->ID) {
+            wp_delete_post($_POST['delete_post_id']);
+        }
     }
 }
 if (!is_user_logged_in()) {
@@ -69,7 +76,7 @@ get_header();
                                 <h6>Choose Picture</h6>
                             </div>
                         </div>
-
+                        <br>
                         <div class="col-sm-3 padding-top-25">
 
                             <div class="form-group">
@@ -102,6 +109,65 @@ get_header();
 
     </div>
 </div>
+<?php
+$paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+$args = array(
+    'post_type' => 'property',
+    'author' => get_current_user_id(),
+    'posts_per_page' => 10,
+    'paged' => $paged,
+);
+$query = new WP_Query($args);
+if ($query->have_posts()) { ?>
+    <div class="content-area recent-property" style="background-color: #FFF;">
+
+        <div class="container">
+            <br>
+            <h3 style="text-align: center;">
+                <strong>Your properties</strong>
+            </h3>
+            <div class="row" style="display: flex; flex-direction: colum; justify-content: center;">
+
+                <div class="col-md-9 pr-30  properties-page user-properties">
+                    <div class="section">
+                        <div id="list-type" class="proerty-th-list">
+                            <?php
+
+
+                            while ($query->have_posts()) {
+                                $query->the_post();
+                                get_template_part('template-parts/property', 'card');
+                            }
+                            wp_reset_postdata();
+
+                            ?>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="pull-right">
+                            <div class="pagination">
+                                <ul><?php
+                                    $big = 999999999;
+                                    echo paginate_links(array(
+                                        'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                                        'format' => '?paged=%#%',
+                                        'current' => max(1, get_query_var('paged')),
+                                        'total' => $query->max_num_pages,
+                                        'type' => 'list',
+                                        'prev_text' => 'Prev',
+                                        'next_text' => 'Next'
+                                    )); ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+<?php } ?>
 
 <?php
 get_footer();

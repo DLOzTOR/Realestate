@@ -2,10 +2,7 @@
 /*
 * Template name: Submit property
 */
-if (!is_user_logged_in()) {
-    wp_redirect(home_url());
-    exit();
-}
+realestate\redirect_if_not_logged_in();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = sanitize_text_field($_POST["property_name"]);
     $content = wp_kses_post($_POST["description"]);

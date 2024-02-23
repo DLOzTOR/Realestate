@@ -15,3 +15,10 @@ function update_user_avatar($user_id)
         error_log('wp_error' . "\n" . var_export($attachment_id));
     }
 }
+function redirect_if_not_logged_in($url = 'login')
+{
+    if (!is_user_logged_in()) {
+        wp_redirect(get_site_url() . '/' . $url);
+        exit();
+    }
+}

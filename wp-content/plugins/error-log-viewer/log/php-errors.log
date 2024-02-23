@@ -70,3 +70,17 @@ Stack trace:
 [23-Feb-2024 00:12:03 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 445
 [23-Feb-2024 00:12:03 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 456
 [23-Feb-2024 00:12:03 UTC] PHP Warning:  Attempt to read property "ID" on null in D:\Folder\Programing\PHP\Realestate\wp-includes\link-template.php on line 409
+[23-Feb-2024 08:26:22 UTC] PHP Warning:  Undefined variable $the_query in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 139
+[23-Feb-2024 08:26:22 UTC] PHP Warning:  Attempt to read property "max_num_pages" on null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 139
+[23-Feb-2024 08:36:21 UTC] PHP Warning:  Undefined variable $big in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 146
+[23-Feb-2024 08:36:21 UTC] PHP Warning:  Undefined variable $big in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 146
+[23-Feb-2024 09:15:49 UTC] 1
+[23-Feb-2024 09:15:49 UTC] 1
+[23-Feb-2024 09:16:05 UTC] PHP Fatal error:  Uncaught TypeError: error_log(): Argument #1 ($message) must be of type string, WP_Post given in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php:27
+Stack trace:
+#0 D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php(27): error_log(Object(WP_Post))
+#1 D:\Folder\Programing\PHP\Realestate\wp-includes\template-loader.php(106): include('D:\\Folder\\Progr...')
+#2 D:\Folder\Programing\PHP\Realestate\wp-blog-header.php(19): require_once('D:\\Folder\\Progr...')
+#3 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
+#4 {main}
+  thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 27
