@@ -8,7 +8,7 @@
             <div>
                 <h5><a href="<?= get_post_permalink() ?>"> <?php the_title() ?> </a></h5>
                 <div class="dot-hr"></div>
-                <span class="pull-left"><b> Area :</b> <?= realestate\get_post_custom_field('area') ?>m </span>
+                <span class="pull-left"><b> Area :</b> <?= realestate\get_post_custom_field('area') ?> m2 </span>
                 <span class="proerty-price pull-right"> $ <?= realestate\get_post_custom_field('price') ?></span>
 
             </div>

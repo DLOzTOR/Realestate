@@ -19,6 +19,7 @@ require_once get_template_directory() . '/functions/meta-boxes.php';
 require_once get_template_directory() . '/functions/nav-menus.php';
 require_once get_template_directory() . '/functions/post-types.php';
 require_once get_template_directory() . '/functions/page-builders.php';
+require_once get_template_directory() . '/functions/filters.php';
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.

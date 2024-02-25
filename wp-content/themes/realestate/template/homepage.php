@@ -3,6 +3,7 @@
 * Template name: Homepage
 */
 get_header();
+$property_values = realestate\get_property_values();
 ?>
 <div class="slider-area">
     <div class="slider">
@@ -21,30 +22,20 @@ get_header();
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi deserunt deleniti, ullam commodi sit ipsam laboriosam velit adipisci quibusdam aliquam teneturo!</p>
                 <div class="search-form wow pulse" data-wow-delay="0.8s">
 
-                    <form action="" class=" form-inline">
+                    <form action="<?= get_site_url() . '/properties' ?>" method="get" class=" form-inline">
                         <button class="btn  toggle-btn" type="button"><i class="fa fa-bars"></i></button>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Key word">
+                            <input name="key_word_search" type="text" class="form-control" placeholder="Key word">
                         </div>
                         <div class="form-group">
-                            <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select your city">
-
-                                <option>New york, CA</option>
-                                <option>Paris</option>
-                                <option>Casablanca</option>
-                                <option>Tokyo</option>
-                                <option>Marraekch</option>
-                                <option>kyoto , shibua</option>
+                            <select id="lunchBegins" name="property_cities" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select City">
+                                <?php realestate\foreach_taxonomy_terms('cities', 'realestate\term_as_option') ?>
                             </select>
                         </div>
                         <div class="form-group">
-                            <select id="basic" class="selectpicker show-tick form-control">
-                                <option> -Status- </option>
-                                <option>Rent </option>
-                                <option>Boy</option>
-                                <option>used</option>
-
+                            <select id="basic" name="property_status" class="selectpicker show-tick form-control" title="Status">
+                                <?php realestate\foreach_taxonomy_terms('status', 'realestate\term_as_option') ?>
                             </select>
                         </div>
                         <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
@@ -54,18 +45,12 @@ get_header();
                             <div class="search-row">
 
                                 <div class="form-group mar-r-20">
-                                    <label for="price-range">Price range ($):</label>
-                                    <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[0,450]" id="price-range"><br />
-                                    <b class="pull-left color">2000$</b>
-                                    <b class="pull-right color">100000$</b>
+                                    <?php realestate\input_range('price', 500, 'price-range', 'Price range ($):', $property_values) ?>
                                 </div>
                                 <!-- End of  -->
 
                                 <div class="form-group mar-l-20">
-                                    <label for="property-geo">Property geo (m2) :</label>
-                                    <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[50,450]" id="property-geo"><br />
-                                    <b class="pull-left color">40m</b>
-                                    <b class="pull-right color">12000m</b>
+                                    <?php realestate\input_range('area', 10, 'property-geo', 'Property geo (m2) :', $property_values) ?>
                                 </div>
                                 <!-- End of  -->
                             </div>
@@ -73,111 +58,29 @@ get_header();
                             <div class="search-row">
 
                                 <div class="form-group mar-r-20">
-                                    <label for="price-range">Min baths :</label>
-                                    <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="min-baths"><br />
-                                    <b class="pull-left color">1</b>
-                                    <b class="pull-right color">120</b>
+                                    <?php realestate\input_range('bathrooms', 1, 'min-baths', 'Bathrooms :', $property_values) ?>
                                 </div>
                                 <!-- End of  -->
 
                                 <div class="form-group mar-l-20">
-                                    <label for="property-geo">Min bed :</label>
-                                    <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="min-bed"><br />
-                                    <b class="pull-left color">1</b>
-                                    <b class="pull-right color">120</b>
+                                    <?php realestate\input_range('bedrooms', 1, 'min-bed', 'Bedrooms :', $property_values) ?>
                                 </div>
                                 <!-- End of  -->
 
                             </div>
                             <br>
                             <div class="search-row">
-
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Fire Place(3100)
-                                        </label>
+                                <?php
+                                realestate\foreach_taxonomy_terms('features', function ($term) {
+                                ?>
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox" name="feature[]" value="<?= $term->term_id ?>"> <?= $term->name ?> </label>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- End of  -->
-
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Dual Sinks(500)
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- End of  -->
-
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Hurricane Shutters(99)
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- End of  -->
-                            </div>
-
-                            <div class="search-row">
-
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Swimming Pool(1190)
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- End of  -->
-
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> 2 Stories(4600)
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- End of  -->
-
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Emergency Exit(200)
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- End of  -->
-                            </div>
-
-                            <div class="search-row">
-
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Laundry Room(10073)
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- End of  -->
-
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Jog Path(1503)
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- End of  -->
-
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> 26' Ceilings(1200)
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- End of  -->
+                                <?php
+                                });
+                                ?>
                                 <br>
                                 <hr>
                             </div>
@@ -190,51 +93,54 @@ get_header();
         </div>
     </div>
 </div>
+<?php
+$args = array(
+    'post_type' => 'property',
+    'posts_per_page' => 7
+);
+$query = new WP_Query($args);
 
-<!-- property area -->
-<div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                <!-- /.feature title -->
-                <h2>Top submitted property</h2>
-                <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies . </p>
+if ($query->have_posts()) {
+?>
+    <!-- property area -->
+    <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                    <!-- /.feature title -->
+                    <h2>Top submitted property</h2>
+                    <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies . </p>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="proerty-th">
-                <?php
-                $args = array(
-                    'post_type' => 'property',
-                    'posts_per_page' => 7
-                );
-                $query = new WP_Query($args);
+            <div class="row">
+                <div class="proerty-th">
+                    <?php
 
-                if ($query->have_posts()) {
+
                     while ($query->have_posts()) : $query->the_post();
                         get_template_part('template-parts/property', 'card');
                     endwhile;
                     wp_reset_postdata();
-                } ?>
-                <div class="col-sm-6 col-md-3 p0">
-                    <div class="box-tree more-proerty text-center">
-                        <div class="item-tree-icon">
-                            <i class="fa fa-th"></i>
-                        </div>
-                        <div class="more-entry overflow">
-                            <h5>CAN'T DECIDE ?</h5>
-                            <h5 class="tree-sub-ttl">Show all properties</h5>
-                            <button class="btn border-btn more-black" value="All properties" onclick="window.location.replace('<?= get_post_type_archive_link('property'); ?>')">All properties</button>
+                    ?>
+                    <div class="col-sm-6 col-md-3 p0">
+                        <div class="box-tree more-proerty text-center">
+                            <div class="item-tree-icon">
+                                <i class="fa fa-th"></i>
+                            </div>
+                            <div class="more-entry overflow">
+                                <h5>CAN'T DECIDE ?</h5>
+                                <h5 class="tree-sub-ttl">Show all properties</h5>
+                                <button class="btn border-btn more-black" value="All properties" onclick="window.location.replace('<?= get_post_type_archive_link('property'); ?>')">All properties</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+<?php } ?>
 <!--Welcome area -->
 <div class="Welcome-area">
     <div class="container">

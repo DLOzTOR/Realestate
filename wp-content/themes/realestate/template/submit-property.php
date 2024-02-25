@@ -117,7 +117,7 @@ get_header();
 
                                         <div class="form-group">
                                             <label>Property price <small>(required)</small></label>
-                                            <input name="price" type="text" class="form-control" placeholder="3330000" required>
+                                            <input name="price" type="number" class="form-control" min="0" placeholder="3330000" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Telephone <small>(optional)</small></label>

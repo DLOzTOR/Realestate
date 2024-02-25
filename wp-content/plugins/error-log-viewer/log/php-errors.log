@@ -84,3 +84,127 @@ Stack trace:
 #3 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
 #4 {main}
   thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\user-profile.php on line 27
+[24-Feb-2024 09:47:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function ver_dump() in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php:15
+Stack trace:
+#0 D:\Folder\Programing\PHP\Realestate\wp-includes\template-loader.php(106): include()
+#1 D:\Folder\Programing\PHP\Realestate\wp-blog-header.php(19): require_once('D:\\Folder\\Progr...')
+#2 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
+#3 {main}
+  thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 15
+[24-Feb-2024 09:48:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function realestate\get_property_values() in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php:15
+Stack trace:
+#0 D:\Folder\Programing\PHP\Realestate\wp-includes\template-loader.php(106): include()
+#1 D:\Folder\Programing\PHP\Realestate\wp-blog-header.php(19): require_once('D:\\Folder\\Progr...')
+#2 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
+#3 {main}
+  thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 15
+[24-Feb-2024 09:48:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function realestate\get_property_values() in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php:15
+Stack trace:
+#0 D:\Folder\Programing\PHP\Realestate\wp-includes\template-loader.php(106): include()
+#1 D:\Folder\Programing\PHP\Realestate\wp-blog-header.php(19): require_once('D:\\Folder\\Progr...')
+#2 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
+#3 {main}
+  thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 15
+[24-Feb-2024 09:48:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function realestate\get_property_values() in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php:15
+Stack trace:
+#0 D:\Folder\Programing\PHP\Realestate\wp-includes\template-loader.php(106): include()
+#1 D:\Folder\Programing\PHP\Realestate\wp-blog-header.php(19): require_once('D:\\Folder\\Progr...')
+#2 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
+#3 {main}
+  thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 15
+[24-Feb-2024 09:48:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function realestate\get_property_values() in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php:15
+Stack trace:
+#0 D:\Folder\Programing\PHP\Realestate\wp-includes\template-loader.php(106): include()
+#1 D:\Folder\Programing\PHP\Realestate\wp-blog-header.php(19): require_once('D:\\Folder\\Progr...')
+#2 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
+#3 {main}
+  thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 15
+[24-Feb-2024 09:48:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function realestate\get_property_values() in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php:15
+Stack trace:
+#0 D:\Folder\Programing\PHP\Realestate\wp-includes\template-loader.php(106): include()
+#1 D:\Folder\Programing\PHP\Realestate\wp-blog-header.php(19): require_once('D:\\Folder\\Progr...')
+#2 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
+#3 {main}
+  thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 15
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key "price" in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 11
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key 0 in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 15
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key 1 in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 16
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key "area" in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 11
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key 0 in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 15
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key 1 in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 16
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key "bedrooms" in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 11
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key 0 in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 15
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key 1 in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 16
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key "bathrooms" in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 11
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key 0 in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 15
+[24-Feb-2024 23:27:36 UTC] PHP Warning:  Undefined array key 1 in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 16
+[24-Feb-2024 23:36:51 UTC] PHP Warning:  Undefined variable $query in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 193
+[24-Feb-2024 23:36:51 UTC] PHP Warning:  Attempt to read property "max_num_pages" on null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php on line 193
+[24-Feb-2024 23:37:49 UTC] PHP Warning:  Undefined array key 0 in D:\Folder\Programing\PHP\Realestate\wp-includes\class-wp-meta-query.php on line 750
+[24-Feb-2024 23:37:49 UTC] PHP Warning:  Undefined array key 1 in D:\Folder\Programing\PHP\Realestate\wp-includes\class-wp-meta-query.php on line 750
+[24-Feb-2024 23:38:33 UTC] PHP Warning:  Undefined array key 0 in D:\Folder\Programing\PHP\Realestate\wp-includes\class-wp-meta-query.php on line 750
+[24-Feb-2024 23:38:33 UTC] PHP Warning:  Undefined array key 1 in D:\Folder\Programing\PHP\Realestate\wp-includes\class-wp-meta-query.php on line 750
+[24-Feb-2024 23:38:33 UTC] PHP Warning:  Undefined array key 0 in D:\Folder\Programing\PHP\Realestate\wp-includes\class-wp-meta-query.php on line 750
+[24-Feb-2024 23:38:33 UTC] PHP Warning:  Undefined array key 1 in D:\Folder\Programing\PHP\Realestate\wp-includes\class-wp-meta-query.php on line 750
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Undefined variable $property_values in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\homepage.php on line 47
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 69
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 69
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 70
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 70
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Undefined variable $property_values in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\homepage.php on line 52
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 69
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 69
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 70
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 70
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Undefined variable $property_values in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\homepage.php on line 60
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 69
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 69
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 70
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 70
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Undefined variable $property_values in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\template\homepage.php on line 65
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 63
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 67
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 69
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 69
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 70
+[25-Feb-2024 13:33:39 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 70
+[25-Feb-2024 13:44:44 UTC] PHP Fatal error:  Uncaught TypeError: in_array(): Argument #2 ($haystack) must be of type array, string given in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php:43
+Stack trace:
+#0 D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php(43): in_array(17, '17')
+#1 D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php(27): realestate\term_as_option(Object(WP_Term))
+#2 D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\archive-property.php(65): realestate\foreach_taxonomy_terms('cities', 'realestate\\term...')
+#3 D:\Folder\Programing\PHP\Realestate\wp-includes\template-loader.php(106): include('D:\\Folder\\Progr...')
+#4 D:\Folder\Programing\PHP\Realestate\wp-blog-header.php(19): require_once('D:\\Folder\\Progr...')
+#5 D:\Folder\Programing\PHP\Realestate\index.php(17): require('D:\\Folder\\Progr...')
+#6 {main}
+  thrown in D:\Folder\Programing\PHP\Realestate\wp-content\themes\realestate\functions\page-builders.php on line 43

@@ -5,8 +5,45 @@
  */
 
 get_header();
-?>
+function realestate_set_filter($key, &$query)
+{
+    if (isset($_GET[$key]) && !empty($_GET[$key])) {
+        $vals = preg_split('/,/', sanitize_text_field($_GET[$key]), -1, PREG_SPLIT_NO_EMPTY);
+        $query[] = [
+            'key' => $key,
+            'value' => [
+                $vals[0],
+                $vals[1],
+            ],
+            'compare' => 'BETWEEN',
+            'type' => 'DECIMAL(10,3)'
+        ];
+    }
+}
+function realestate_set_tax($key, $name, &$query)
+{
+    if (isset($_GET[$key]) && !empty($_GET[$key])) {
+        $query[] = [
+            'taxonomy' => $name,
+            'field' => 'term_id',
+            'terms' => is_array($_GET[$key]) ? array_map('sanitize_text_field', $_GET[$key]) : sanitize_text_field($_GET[$key]),
+            'operator' => 'IN',
+        ];
+    }
+}
+$meta_query = ['relation' => 'AND'];
+realestate_set_filter('price', $meta_query);
+realestate_set_filter('area', $meta_query);
+realestate_set_filter('bedrooms', $meta_query);
+realestate_set_filter('bathrooms', $meta_query);
+$tax_querty = ['relation' => 'AND'];
+realestate_set_tax('feature', 'features', $tax_querty);
+realestate_set_tax('property_cities', 'cities', $tax_querty);
+realestate_set_tax('property_status', 'status', $tax_querty);
+$post_get_page = isset($_GET['per_page']) ? intval($_GET['per_page']) : 6;
+$property_values = realestate\get_property_values();
 
+?>
 <div class="page-head">
     <div class="container">
         <div class="row">
@@ -19,19 +56,19 @@ get_header();
 <div class="properties-area recent-property" style="background-color: #FFF;">
     <div class="container">
         <div class="row">
+            <form action="<?= get_site_url() . '/properties' ?>" method="get" class=" form-inline">
 
-            <div class="col-md-3 p0 padding-top-40">
-                <div class="blog-asside-right pr0">
-                    <div class="panel panel-default sidebar-menu wow fadeInRight animated">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Smart search</h3>
-                        </div>
-                        <div class="panel-body search-widget">
-                            <form action="#" method="get" class=" form-inline">
+                <div class="col-md-3 p0 padding-top-40">
+                    <div class="blog-asside-right pr0">
+                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Smart search</h3>
+                            </div>
+                            <div class="panel-body search-widget">
                                 <fieldset>
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <input type="text" class="form-control" placeholder="Key word">
+                                            <input name="key_word_search" value="<?php if (isset($_GET['key_word_search']) && !empty($_GET['key_word_search'])) echo sanitize_text_field($_GET['key_word_search']) ?>" type="text" class="form-control" placeholder="Key word">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -39,12 +76,12 @@ get_header();
                                 <fieldset>
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select City">
+                                            <select id="lunchBegins" name="property_cities" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select City">
                                                 <?php realestate\foreach_taxonomy_terms('cities', 'realestate\term_as_option') ?>
                                             </select>
                                         </div>
                                         <div class="col-xs-6">
-                                            <select id="basic" class="selectpicker show-tick form-control" title="Status">
+                                            <select id="basic" name="property_status" class="selectpicker show-tick form-control" title="Status">
                                                 <?php realestate\foreach_taxonomy_terms('status', 'realestate\term_as_option') ?>
                                             </select>
                                         </div>
@@ -53,16 +90,10 @@ get_header();
                                 <fieldset class="padding-5">
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <label for="price-range">Price range ($):</label>
-                                            <input class="span2" value="" data-slider-min="2000" data-slider-max="1000000" data-slider-step="500" data-slider-value="[2000,1000000]" id="price-range"><br />
-                                            <b class="pull-left color">2000$</b>
-                                            <b class="pull-right color">1000000$</b>
+                                            <?php realestate\input_range('price', 500, 'price-range', 'Price range ($):', $property_values) ?>
                                         </div>
                                         <div class="col-xs-6">
-                                            <label for="property-geo">Property geo (m2) :</label>
-                                            <input type="text" class="span2" value="" data-slider-min="40" data-slider-max="1200" data-slider-step="10" data-slider-value="[40,1200]" id="property-geo"><br />
-                                            <b class="pull-left color">40m</b>
-                                            <b class="pull-right color">1200m</b>
+                                            <?php realestate\input_range('area', 10, 'property-geo', 'Property geo (m2) :', $property_values) ?>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -70,18 +101,11 @@ get_header();
                                 <fieldset class="padding-5">
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <label for="price-range">Bathrooms :</label>
-                                            <input type="text" class="span2" value="" data-slider-min="1" data-slider-max="20" data-slider-step="1" data-slider-value="[1,20]" id="min-baths"><br />
-                                            <b class="pull-left color">1</b>
-                                            <b class="pull-right color">20</b>
+                                            <?php realestate\input_range('bathrooms', 1, 'min-baths', 'Bathrooms :', $property_values) ?>
                                         </div>
 
                                         <div class="col-xs-6">
-                                            <label for="property-geo">Bedrooms :</label>
-                                            <input type="text" class="span2" value="" data-slider-min="1" data-slider-max="20" data-slider-step="1" data-slider-value="[1,20]" id="min-bed"><br />
-                                            <b class="pull-left color">1</b>
-                                            <b class="pull-right color">20</b>
-
+                                            <?php realestate\input_range('bedrooms', 1, 'min-bed', 'Bedrooms :', $property_values) ?>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -92,7 +116,7 @@ get_header();
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="checkbox">
-                                                    <label> <input type="checkbox" name="feature[]" value="<?= $term->term_id ?>"> <?= $term->name ?> </label>
+                                                    <label> <input type="checkbox" name="feature[]" value="<?= $term->term_id ?>" <?php if (isset($_GET['feature']) && in_array($term->term_id, $_GET['feature'])) echo 'checked'; ?>> <?= $term->name ?> </label>
                                                 </div>
                                             </div>
                                         </div>
@@ -103,142 +127,97 @@ get_header();
                                 <fieldset>
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <input class="button btn largesearch-btn" value="Search" type="submit">
+                                            <input class="button btn largesearch-btn" value="Search" type="submit" id="search-submit">
+                                            <a href="<?= get_site_url() . '/properties' ?>"><input class="button btn largesearch-btn" value="Reset" type="button" id="search-submit"></a>
                                         </div>
                                     </div>
                                 </fieldset>
-                            </form>
-                        </div>
-                    </div>
 
-                    <div class="panel panel-default sidebar-menu wow fadeInRight animated">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Recommended</h3>
-                        </div>
-                        <div class="panel-body recent-property-widget">
-                            <ul>
-                                <li>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
-                                        <a href="single.html"><img src="<?= get_template_directory_uri() ?>/assets/img/demo/small-property-2.jpg"></a>
-                                        <span class="property-seeker">
-                                            <b class="b-1">A</b>
-                                            <b class="b-2">S</b>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                        <h6> <a href="single.html">Super nice villa </a></h6>
-                                        <span class="property-price">3000000$</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="col-md-3 col-sm-3  col-xs-3 blg-thumb p0">
-                                        <a href="single.html"><img src="<?= get_template_directory_uri() ?>/assets/img/demo/small-property-1.jpg"></a>
-                                        <span class="property-seeker">
-                                            <b class="b-1">A</b>
-                                            <b class="b-2">S</b>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                        <h6> <a href="single.html">Super nice villa </a></h6>
-                                        <span class="property-price">3000000$</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
-                                        <a href="single.html"><img src="<?= get_template_directory_uri() ?>/assets/img/demo/small-property-3.jpg"></a>
-                                        <span class="property-seeker">
-                                            <b class="b-1">A</b>
-                                            <b class="b-2">S</b>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                        <h6> <a href="single.html">Super nice villa </a></h6>
-                                        <span class="property-price">3000000$</span>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
-                                        <a href="single.html"><img src="<?= get_template_directory_uri() ?>/assets/img/demo/small-property-2.jpg"></a>
-                                        <span class="property-seeker">
-                                            <b class="b-1">A</b>
-                                            <b class="b-2">S</b>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                        <h6> <a href="single.html">Super nice villa </a></h6>
-                                        <span class="property-price">3000000$</span>
-                                    </div>
-                                </li>
-
-                            </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-9  pr0 padding-top-40 properties-page">
-                <div class="col-md-12 clear">
-                    <div class="col-xs-10 page-subheader sorting pl0">
-                        <ul class="sort-by-list">
-                            <li class="active">
-                                <a href="javascript:void(0);" class="order_by_date" data-orderby="property_date" data-order="ASC">
-                                    Property Date <i class="fa fa-sort-amount-asc"></i>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
-                                    Property Price <i class="fa fa-sort-numeric-desc"></i>
-                                </a>
-                            </li>
-                        </ul><!--/ .sort-by-list-->
-                        <form id="items-per-page" action="#" method="GET" class="items-per-page">
-                            <label for="items_per_page"><b>Property per page :</b></label>
-                            <div class="sel">
-                                <select id="items_per_page" name="per_page" onchange="this.form.submit()">
-                                    <option <?php realestate\set_select_droplist(3) ?> value="3">3</option>
-                                    <option <?php realestate\set_select_droplist(6) ?> value="6">6</option>
-                                    <option <?php realestate\set_select_droplist(9) ?> value="9">9</option>
-                                    <option <?php realestate\set_select_droplist(12) ?> value="12">12</option>
-                                    <option <?php realestate\set_select_droplist(15) ?> value="15">15</option>
-                                    <option <?php realestate\set_select_droplist(30) ?> value="30">30</option>
-                                    <option <?php realestate\set_select_droplist(45) ?> value="45">45</option>
-                                    <option <?php realestate\set_select_droplist(60) ?> value="60">60</option>
-                                </select>
-                            </div><!--/ .sel-->
-                        </form><!--/ .items-per-page-->
-                    </div>
-                    <div class="col-xs-2 layout-switcher">
-                        <a class="layout-list" href="javascript:void(0);"> <i class="fa fa-th-list"></i> </a>
-                        <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>
-                    </div><!--/ .layout-switcher-->
-                </div>
-                <?php
-
-                if (have_posts()) : ?>
+                <div class="col-md-9  pr0 padding-top-40 properties-page">
                     <div class="col-md-12 clear">
-                        <div id="list-type" class="proerty-th">
-                            <?php
-                            /* Start the Loop */
-                            while (have_posts()) :
-                                the_post();
-                                get_template_part('template-parts/property', 'card');
-                            endwhile;
-                            ?>
+                        <div class="col-xs-10 page-subheader sorting pl0">
+                            <div id="items-per-page" action="#" method="GET" class="items-per-page">
+                                <label for="items_per_page"><b>Property per page :</b></label>
+                                <div class="sel">
+                                    <select id="items_per_page" name="per_page" onchange="this.form.submit()">
+                                        <option <?php realestate\set_select_droplist(3) ?> value="3">3</option>
+                                        <option <?php realestate\set_select_droplist(6) ?> value="6">6</option>
+                                        <option <?php realestate\set_select_droplist(9) ?> value="9">9</option>
+                                        <option <?php realestate\set_select_droplist(12) ?> value="12">12</option>
+                                        <option <?php realestate\set_select_droplist(15) ?> value="15">15</option>
+                                        <option <?php realestate\set_select_droplist(30) ?> value="30">30</option>
+                                        <option <?php realestate\set_select_droplist(45) ?> value="45">45</option>
+                                        <option <?php realestate\set_select_droplist(60) ?> value="60">60</option>
+                                    </select>
+                                </div><!--/ .sel-->
+                            </div><!--/ .items-per-page-->
                         </div>
+                        <div class="col-xs-2 layout-switcher">
+                            <a class="layout-list" href="javascript:void(0);"> <i class="fa fa-th-list"></i> </a>
+                            <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>
+                        </div><!--/ .layout-switcher-->
                     </div>
-                    <?php get_template_part('template-parts/pagination', 'none'); ?>
+                    <?php
+                    $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
 
-                <?php
-                else :
+                    $q_args = [
+                        'post_type' => 'property',
+                        'post_per_page' => $post_get_page,
+                        'paged' => $paged,
+                        'meta_query' => $meta_query,
+                        'tax_query' => $tax_querty,
+                    ];
+                    if (isset($_GET['key_word_search']) && !empty($_GET['key_word_search'])) {
+                        $q_args['s'] = sanitize_text_field($_GET['key_word_search']);
+                    }
+                    $query = new WP_Query(
+                        $q_args
+                    );
+                    if ($query->have_posts()) : ?>
+                        <div class="col-md-12 clear">
+                            <div id="list-type" class="proerty-th">
+                                <?php
+                                /* Start the Loop */
+                                while ($query->have_posts()) :
+                                    $query->the_post();
+                                    get_template_part('template-parts/property', 'card');
+                                endwhile;
+                                ?>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <div class="pagination">
+                                    <?php
+                                    $big = 999999999;
+                                    echo paginate_links(array(
+                                        'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                                        'format' => '?paged=%#%',
+                                        'current' => max(1, get_query_var('paged')),
+                                        'total' => $query->max_num_pages,
+                                        'type' => 'list',
+                                        'prev_text' => 'Prev',
+                                        'next_text' => 'Next'
+                                    )); ?>
+                                </div>
+                            </div>
+                        </div>
 
-                    get_template_part('template-parts/content', 'none');
-
-                endif; ?>
-            </div>
+                    <?php
+                    else :
+                        echo '<h2>No property founded</h2>';
+                    endif; ?>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 <?php
 get_footer();
+?>

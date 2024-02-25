@@ -114,7 +114,7 @@ $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
 $args = array(
     'post_type' => 'property',
     'author' => get_current_user_id(),
-    'posts_per_page' => 10,
+    'posts_per_page' => 1,
     'paged' => $paged,
 );
 $query = new WP_Query($args);
@@ -146,18 +146,17 @@ if ($query->have_posts()) { ?>
                     <div class="section">
                         <div class="pull-right">
                             <div class="pagination">
-                                <ul><?php
-                                    $big = 999999999;
-                                    echo paginate_links(array(
-                                        'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-                                        'format' => '?paged=%#%',
-                                        'current' => max(1, get_query_var('paged')),
-                                        'total' => $query->max_num_pages,
-                                        'type' => 'list',
-                                        'prev_text' => 'Prev',
-                                        'next_text' => 'Next'
-                                    )); ?>
-                                </ul>
+                                <?php
+                                $big = 999999999;
+                                echo paginate_links(array(
+                                    'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                                    'format' => '?paged=%#%',
+                                    'current' => max(1, get_query_var('paged')),
+                                    'total' => $query->max_num_pages,
+                                    'type' => 'list',
+                                    'prev_text' => 'Prev',
+                                    'next_text' => 'Next'
+                                )); ?>
                             </div>
                         </div>
                     </div>

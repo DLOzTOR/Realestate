@@ -16,6 +16,7 @@ use WP_Term;
  *                            For example: function my_callback(WP_Term $term) { /* your code * / }.
  * @return void
  */
+
 function foreach_taxonomy_terms($taxonomy, $callback)
 {
     $taxonomy_terms =  get_terms(array(
@@ -39,9 +40,10 @@ function set_select_droplist($value)
 function term_as_option(WP_Term $term)
 {
 ?>
-    <option value="<?= $term->term_id ?>"> <?= $term->name ?> </option>
+    <option value="<?= $term->term_id ?>" <?php if (isset($_GET['property_' . $term->taxonomy]) && $term->term_id == $_GET['property_' . $term->taxonomy]) echo 'selected'; ?>> <?= $term->name ?> </option>
     <?php
 }
+
 function header_buttons()
 {
     if (is_user_logged_in()) : ?>
@@ -50,5 +52,21 @@ function header_buttons()
         <button class="navbar-btn nav-button wow bounceInRight" onclick=" window.location.replace('<?= wp_logout_url() ?>')" data-wow-delay="0.45s">Logout</button>
     <?php else : ?>
         <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.location.replace('<?= wp_login_url() ?>')" data-wow-delay="0.45s">Login</button>
-<?php endif;
+    <?php endif;
+}
+
+function input_range($name, $step, $id, $label, $property_values)
+{
+    if (isset($_GET[$name]) && !empty($_GET[$name])) {
+        $set_range = sanitize_text_field($_GET[$name]);
+    } else {
+        $set_range = $property_values[$name]['min'] . ',' .  $property_values[$name]['max'];
+    }
+    ?>
+    <label for="<?= $id ?>"><?= $label ?></label>
+    <input type="text" class="span2" name="<?= $name ?>" value="<?php if (isset($_GET[$name]) && !empty($_GET[$name])) echo $set_range; ?>" data-slider-min="<?= $property_values[$name]['min'] ?>" data-slider-max="<?= $property_values[$name]['max'] ?>" data-slider-step="<?= $step ?>" data-slider-value="[<?= $set_range ?>]" id="<?= $id ?>" checked>
+    <br />
+    <b class="pull-left color"><?= $property_values[$name]['min'] ?></b>
+    <b class="pull-right color"><?= $property_values[$name]['max'] ?></b>
+<?php
 }
