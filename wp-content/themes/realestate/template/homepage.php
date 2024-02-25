@@ -340,7 +340,7 @@ if ($query->have_posts()) {
                         <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa</p>
                     </div>
                     <div class="asks-first-arrow">
-                        <a href="<?php get_post_type_archive_link('property') ?>"><span class="fa fa-angle-right"></span></a>
+                        <a href="<?= get_post_type_archive_link('property') ?>"><span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -354,7 +354,7 @@ if ($query->have_posts()) {
                         <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa</p>
                     </div>
                     <div class="asks-first-arrow">
-                        <a href="<?php get_post_type_archive_link('property') ?>"><span class="fa fa-angle-right"></span></a>
+                        <a href="<?= get_site_url() . '/submit-property' ?>"><span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>
